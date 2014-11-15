@@ -1,4 +1,4 @@
-;;; bats-mode.el --- bats mode
+;;; bats-mode.el --- Emacs mode for editing and running Bats tests
 
 ;; Author: Doug MacEachern
 ;; URL: https://github.com/dougm/bats-mode
