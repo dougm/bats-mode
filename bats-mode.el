@@ -29,9 +29,9 @@
 
 (defvar bats-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-c a") 'bats-run-all)
-    (define-key map (kbd "C-c m") 'bats-run-current-file)
-    (define-key map (kbd "C-c .") 'bats-run-current-test)
+    (define-key map (kbd "C-c C-a") 'bats-run-all)
+    (define-key map (kbd "C-c C-,") 'bats-run-current-file)
+    (define-key map (kbd "C-c M-,") 'bats-run-current-test)
     map)
   "Keymap used in Bats mode.")
 
