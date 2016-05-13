@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# default location
+bats_preprocess=/usr/local/libexec/bats-preprocess
+
+if [ ! -x "$bats_preprocess" ] ; then
+  # bin/bats is a symlink to ../libexec/bats
+  readlink=$(type -p greadlink readlink | head -1)
+  bats=$($readlink -nf "$(which bats)")
+  libexec=$(dirname "$bats")
+  bats_preprocess="$libexec/bats-preprocess"
+fi
+
+"$bats_preprocess" | shellcheck "$@"
