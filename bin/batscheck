@@ -11,4 +11,4 @@ if [ ! -x "$bats_preprocess" ] ; then
   bats_preprocess="$libexec/bats-preprocess"
 fi
 
-"$bats_preprocess" | shellcheck "$@"
+"$bats_preprocess" | sed '1 s,^#!.*$,#!/bin/bash,' | shellcheck "$@"

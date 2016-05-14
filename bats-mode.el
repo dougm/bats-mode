@@ -35,10 +35,10 @@
     map)
   "Keymap used in Bats mode.")
 
-(defvar batscheck-program (executable-find (concat (file-name-directory
-                                                    (or load-file-name
-                                                        buffer-file-name))
-                                                   "bin/batscheck"))
+(defvar bats-check-program (executable-find (concat (file-name-directory
+                                                     (or load-file-name
+                                                         buffer-file-name))
+                                                    "bin/batscheck"))
   "Default batscheck program.")
 
 ;;;###autoload
@@ -49,11 +49,8 @@ See URL `https://github.com/sstephenson/bats'.
 
 \\{bats-mode-map}"
 
-  (add-hook 'flycheck-mode-hook
-            (lambda ()
-              (when batscheck-program
-                (flycheck-add-mode 'sh-shellcheck 'bats-mode)
-                (flycheck-set-checker-executable 'sh-shellcheck batscheck-program))))
+  (set (make-local-variable 'flycheck-sh-shellcheck-executable) bats-check-program)
+  (set (make-local-variable 'sh-shell) 'bash)
 
   ;; bash font-lock + a few bats keywords
   (add-to-list 'sh-font-lock-keywords-var
@@ -105,6 +102,10 @@ NAME if given is used as the bats test pattern."
 ;;;###autoload
 (progn
   (add-to-list 'auto-mode-alist '("\\.bats\\'" . bats-mode)))
+
+(eval-after-load 'flycheck
+  '(progn
+     (flycheck-add-mode 'sh-shellcheck 'bats-mode)))
 
 (provide 'bats-mode)
 
