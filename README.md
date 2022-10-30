@@ -32,6 +32,3 @@ Keybinding: <kbd>C-c C-,</kbd>
 Run bats with the current test at point.
 
 Keybinding: <kbd>C-c M-,</kbd>
-
-Note, this feature is not yet merged into a Bats release.
-See the [github issue](https://github.com/sstephenson/bats/issues/36) for more info.

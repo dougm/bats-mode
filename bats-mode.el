@@ -79,9 +79,10 @@ See URL `https://github.com/sstephenson/bats'.
 (defun bats-run (file &optional name)
   "Run bats -t FILE.
 NAME if given is used as the bats test pattern."
-  (let ((cmd (concat bats-program " -t " file)))
-    (compile (if name (concat (format "BATS_TEST_PATTERN='^%s$' " name) cmd)
-               cmd))))
+  (let ((cmd (concat bats-program
+                     (when name (format " -f '^%s$'" name))
+                     " -t " file)))
+    (compile cmd)))
 
 (defun bats-run-current-test ()
   "Run bats with the current test at point."
