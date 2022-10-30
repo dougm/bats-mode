@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-`bats-mode` is an Emacs mode for editing and running [Bats tests](https://github.com/sstephenson/bats).
+`bats-mode` is an Emacs mode for editing and running [Bats tests](https://github.com/bats-core/bats-core).
 
 `bats-mode` derives from the bash flavor of `sh-mode`, adding font-lock for bats keywords.
 
