@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-`bats-mode` is an Emacs mode for editing and running [Bats tests](https://github.com/sstephenson/bats).
+`bats-mode` is an Emacs mode for editing and running [Bats tests](https://github.com/bats-core/bats-core).
 
 `bats-mode` derives from the bash flavor of `sh-mode`, adding font-lock for bats keywords.
 
@@ -32,6 +32,3 @@ Keybinding: <kbd>C-c C-,</kbd>
 Run bats with the current test at point.
 
 Keybinding: <kbd>C-c M-,</kbd>
-
-Note, this feature is not yet merged into a Bats release.
-See the [github issue](https://github.com/sstephenson/bats/issues/36) for more info.
