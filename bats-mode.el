@@ -66,6 +66,13 @@ See URL `https://github.com/sstephenson/bats'.
 (defvar bats-program "bats"
   "Default bats program.")
 
+(defun bats-remove-tramp-prefix (filename)
+  (if (string-match-p ":" filename)
+      ;; If it does, remove the prefix
+      (replace-regexp-in-string ".*:" "" filename)
+    ;; If it doesn't, use the original filename
+    filename))
+
 (defun bats-current-test ()
   "Find current bats test."
   (let (test-name)
@@ -93,7 +100,7 @@ NAME if given is used as the bats test pattern."
   "Run bats with the current buffer file.
 NAME if given is used as the bats test pattern."
   (interactive)
-  (bats-run buffer-file-name name))
+  (bats-run (bats-remove-tramp-prefix buffer-file-name) name))
 
 (defun bats-run-all ()
   "Run bats in the current directory."
